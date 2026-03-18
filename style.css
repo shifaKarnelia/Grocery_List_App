@@ -1,0 +1,393 @@
+:root {
+  --pink-strong: #f76897;
+  --pink-main: #ff82ae;
+  --pink-soft: #ffe7ef;
+  --pink-border: #ff7ba8;
+  --green-soft: #ddf7d5;
+  --green-main: #4eaf57;
+  --ink: #7b4560;
+  --white: rgba(255, 255, 255, 0.94);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  color: var(--ink);
+  background:url(grocery-bg.png)
+
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px 18px;
+}
+
+.app-frame {
+  width: min(100%, 760px);
+  padding: 28px;
+  border: 8px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 236, 243, 0.5);
+  box-shadow: 0 20px 50px rgba(200, 91, 128, 0.18);
+}
+
+.paper-card {
+  background: var(--white);
+  border: 2px solid #ff8ab3;
+  padding: 26px;
+  min-height: 640px;
+}
+
+.progress-block {
+  background: #fff4f7;
+  border-radius: 20px;
+  padding: 16px 18px;
+  margin-bottom: 18px;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.7rem;
+  color: #cf7e9d;
+}
+
+.progress-header h2 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.progress-count {
+  background: var(--green-soft);
+  color: #2e8c38;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.progress-bar {
+  height: 14px;
+  border-radius: 999px;
+  background: #ffd6e4;
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #7edc86 0%, #49bf61 100%);
+  transition: width 0.25s ease;
+}
+
+h1 {
+  margin: 0 0 18px;
+  text-align: center;
+  font-family: "Pacifico", cursive;
+  font-size: clamp(2.5rem, 6vw, 4.2rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--pink-strong);
+}
+
+.input-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.input-row input {
+  width: 100%;
+  min-width: 0;
+  border: none;
+  background: #fff0f5;
+  padding: 16px 18px;
+  font: inherit;
+  color: var(--ink);
+  outline: 2px solid transparent;
+}
+
+.input-row input:focus {
+  outline-color: #ff9ebe;
+}
+
+.input-row button {
+  border: none;
+  border-radius: 999px;
+  background: var(--pink-main);
+  color: #ffffff;
+  padding: 0 22px;
+  min-height: 54px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.input-row button:hover {
+  background: var(--pink-strong);
+  transform: translateY(-1px);
+}
+
+.grocery-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.grocery-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  background: linear-gradient(180deg, #ff7ea8 0%, #f76f9d 100%);
+  color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 14px 24px rgba(247, 111, 157, 0.18);
+}
+
+.item-check {
+  appearance: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  background: transparent;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.item-check::after {
+  content: "\2713";
+  font-size: 0.95rem;
+  color: #ff7ea8;
+  transform: scale(0);
+  transition: transform 0.18s ease;
+}
+
+.item-check:checked {
+  background: #ffffff;
+}
+
+.item-check:checked::after {
+  transform: scale(1);
+}
+
+.item-text {
+  flex: 1;
+  min-width: 0;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.grocery-item.done {
+  background: linear-gradient(180deg, #b9e8ba 0%, #8fd894 100%);
+  color: #2f6d35;
+}
+
+.grocery-item.done .item-text {
+  text-decoration: line-through;
+  opacity: 0.85;
+}
+
+.delete-btn {
+  border: none;
+  background: rgba(255, 255, 255, 0.18);
+  color: inherit;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.empty-state {
+  margin: 32px 0 0;
+  text-align: center;
+  color: #ca88a1;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .app-shell {
+    padding: 40px 24px;
+  }
+
+  .app-frame {
+    width: min(100%, 700px);
+    padding: 24px;
+  }
+
+  .paper-card {
+    padding: 24px;
+    min-height: 600px;
+  }
+
+  h1 {
+    font-size: 3.4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .app-shell {
+    padding: 56px 24px;
+  }
+
+  .app-frame {
+    width: min(100%, 820px);
+    padding: 32px;
+  }
+
+  .paper-card {
+    padding: 32px;
+  }
+
+  .grocery-list {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .app-shell {
+    padding: 18px 10px;
+  }
+
+  .app-frame {
+    width: min(100%, 440px);
+    padding: 12px;
+    border-width: 4px;
+    background: rgba(255, 236, 243, 0.62);
+  }
+
+  .paper-card {
+    padding: 16px;
+    min-height: auto;
+    border-width: 1.5px;
+  }
+
+  .progress-block {
+    padding: 12px 13px;
+    margin-bottom: 14px;
+    border-radius: 16px;
+  }
+
+  .progress-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .progress-count {
+    white-space: normal;
+    font-size: 0.8rem;
+  }
+
+  h1 {
+    font-size: clamp(2.1rem, 11vw, 2.8rem);
+    line-height: 1.05;
+    margin-bottom: 14px;
+  }
+
+  .input-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .input-row input,
+  .input-row button {
+    min-height: 48px;
+  }
+
+  .input-row button {
+    width: 100%;
+  }
+
+  .grocery-item {
+    padding: 12px 14px;
+    border-radius: 16px;
+    box-shadow: 0 10px 18px rgba(247, 111, 157, 0.14);
+  }
+}
+
+@media (max-width: 480px) {
+  .app-shell {
+    padding: 12px 8px;
+  }
+
+  .app-frame {
+    width: min(100%, 360px);
+    padding: 9px;
+  }
+
+  .paper-card {
+    padding: 13px;
+  }
+
+  .progress-header h2 {
+    font-size: 1rem;
+  }
+
+  .progress-count {
+    font-size: 0.74rem;
+    padding: 6px 10px;
+  }
+
+  .input-row input {
+    padding: 13px 14px;
+    font-size: 0.95rem;
+  }
+
+  .input-row button {
+    font-size: 0.95rem;
+  }
+
+  .grocery-item {
+    gap: 9px;
+    padding: 11px 12px;
+    border-radius: 14px;
+  }
+
+  .item-text {
+    font-size: 0.92rem;
+  }
+
+  .item-check {
+    width: 22px;
+    height: 22px;
+  }
+
+  .delete-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+
+  .empty-state {
+    margin-top: 22px;
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grocery List App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="app-frame">
+      <div class="paper-card">
+        <div class="progress-block">
+          <div class="progress-header">
+            <div>
+              <p class="eyebrow">Shopping progress</p>
+              <h2 id="progressLabel">0% done</h2>
+            </div>
+            <span id="progressCount" class="progress-count">0 / 0 items</span>
+          </div>
+          <div class="progress-bar" aria-hidden="true">
+            <div id="progressFill" class="progress-fill"></div>
+          </div>
+        </div>
+
+        <h1>Grocery list</h1>
+
+        <form id="groceryForm" class="input-row">
+          <input id="itemInput" type="text" placeholder="Add grocery item" maxlength="60" autocomplete="off" required>
+          <button type="submit">Add item</button>
+        </form>
+
+        <ul id="groceryList" class="grocery-list"></ul>
+
+        <p id="emptyState" class="empty-state">Your list is empty. Add an item to get started.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
