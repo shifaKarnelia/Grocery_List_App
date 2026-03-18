@@ -22,8 +22,9 @@ This project lets users add grocery items, mark them as completed, delete items 
 
 ## How To Run
 
-1. Download or clone the project files.
-2. Open `index.html` in your browser.
+click here
+https://shifaKarnelia.github.io/Grocery_List_App/
+
 
 ## Purpose
 
